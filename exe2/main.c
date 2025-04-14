@@ -31,7 +31,12 @@ void i2c_task(void *p) {
 
     // TODO
     // Leia o INT_ENABLE e imprima o valor
+    uint8_t reg = 0x38;
+    i2c_write_blocking(i2c_default, I2C_CHIP_ADDRESS, &reg, 1, true); // true to keep master control of bus
+    i2c_read_blocking(i2c_default, I2C_CHIP_ADDRESS, buffer, 1, false);
     printf("INT_ENABLE: 0x%X \n", buffer[0]);
+
+
 
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(200));
