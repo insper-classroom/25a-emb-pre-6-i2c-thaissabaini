@@ -20,7 +20,7 @@ void i2c_task(void *p) {
     gpio_set_function(I2C_SCL_GPIO, GPIO_FUNC_I2C);
     gpio_pull_up(I2C_SDA_GPIO);
     gpio_pull_up(I2C_SCL_GPIO);
-    uint8_t buffer[0];
+
 
     // TODO
     // read id chip BMP280
